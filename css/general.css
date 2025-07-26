@@ -122,8 +122,40 @@ nav img {
 }
 
 @media (max-width: 768px) {
+  /* Ensure navbar stays properly positioned on mobile */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo {
+    height: 40px;
+    width: auto;
+    flex-shrink: 0;
+  }
+  
   .mobile-menu-toggle {
     display: block;
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .mobile-menu-toggle:hover {
+    background: rgba(0, 0, 0, 0.1);
   }
   
   .nav-links {
@@ -137,6 +169,9 @@ nav img {
     transition: right 0.3s ease;
     z-index: 9999;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    /* Hide from main navbar layout */
+    flex: none;
+    text-align: left;
   }
   
   .nav-links.active {
